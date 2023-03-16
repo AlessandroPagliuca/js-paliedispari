@@ -8,43 +8,43 @@ Stabiliamo se la somma dei due numeri è pari o dispari
 Dichiariamo chi ha vinto.
 */
 
-// selezione del btn a cui aggiungere l'evento
+// selection of the btn to add the event to
 let btnParDisp = document.getElementById('btnParDisp');
 btnParDisp.addEventListener('click', numberSelected);
 
-// Inizio della funzione da aggiungere all'evento del btn 
+// Start of the function to add to the btn event 
 function numberSelected(){
-    // Otteniamo la scelta dell'utente dalla select
+    //user choice received by select
     let selectedUser = document.getElementById("select").value;
     console.log(selectedUser,' select user');
   
-    // Otteniamo il numero inserito dall'utente dalla casella di input
+    //number entered by the user in input
     let numUser = parseInt(document.getElementById("numUser").value);
-    console.log(numUser,'utente');
+    console.log(numUser,'user');
   
-    // Generiamo un numero casuale per il computer
+    // We generate a random number for the computer
     let numComputer = Math.floor(Math.random() * 5) + 1;
     console.log(numComputer,'computer');
   
-    // Sommiamo i due numeri
-    let somma = numUser + numComputer;
-    console.log(somma, 'somma di entrambi');
+    // Sum (numUser, numComputer)
+    let sum = numUser + numComputer;
+    console.log(sum, 'sum of both');
   
-    // Stabiliamo se la somma è pari o dispari
+    // We determine whether the sum is even or odd
     function isPar(num) {
-        console.log(num);
+        console.log(num,'"Check if even or odd"');
       return num % 2 === 0;
     }
-    let result = isPar(somma) ? "pari" : "dispari";
-    console.log(result, '"Verifica se pari o dispari"');
+    let result = isPar(sum) ? "even" : "odd";
+    console.log(result,);
   
-    // Dichiariamo chi ha vinto
-    if ((result === "pari" && selectedUser === "pari") || (result === "dispari" && selectedUser === "dispari")) {
-      document.getElementById("result").innerText = "Hai vinto!";
-      console.log('HAI VINTO');
+    // We declare who won
+    if ((result === "even" && selectedUser === "even") || (result === "odd" && selectedUser === "odd")) {
+      document.getElementById("result").innerText = "You won!";
+      console.log('You won');
     } else {
-      document.getElementById("result").innerText = "Hai perso!";
-      console.log('HAI PERSO');
+      document.getElementById("result").innerText = "You lost!";
+      console.log('You lost');
 
     }
   }
