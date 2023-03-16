@@ -17,26 +17,26 @@ function wordValue(e){
     console.log(wordUser);
 
     
-    // converte la parola in minuscolo e rimuove gli spazi bianchi
+    //convertiamo la parola in minuscolo e rimuove gli spazi bianchi
     wordUser = wordUser.toLowerCase();
     console.log(wordUser)
         
-    // converte la parola in un array di caratteri e inverte l'array
+    //convertiamo la parola in un array di caratteri e inverte l'array
     let reversedWord = wordUser.split("").reverse().join("");
     console.log(reversedWord);
 
-    // confronta la parola originale con la versione invertita
+    //confrontiamo la parola originale con la versione invertita
     if (wordUser === reversedWord) {
+        const text = document.querySelector('h3').innerHTML = 'La parola de te inserita è palindroma';
         console.log(true);
-        return true;
 
     } else {
-        console.log(false)
-        return false;
+        const text = document.querySelector('h3').innerHTML = 'La parola de te inserita NON è palindroma';
+        console.log(false);
 
     }
-}
 
+}
 
 
   
