@@ -6,10 +6,13 @@ Creare una funzione per capire se la parola inserita è palindroma
 */
 
 //prendiamo il tag del bottone  
-let wordUser;
 const btnWord = document.getElementById('btnWord');
-
+// aggiungiamo l'evento click al bottone
 btnWord.addEventListener('click', wordValue);
+
+// creiamo una variabile per prendere la parola in input
+let wordUser;
+
 //Inizio della funzione per prenderci la parola inserita dall'utente
 function wordValue(e){
     e.preventDefault();
