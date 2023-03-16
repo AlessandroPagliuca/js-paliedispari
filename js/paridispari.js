@@ -36,7 +36,7 @@ function numberSelected(){
       return num % 2 === 0;
     }
     let result = isPar(sum) ? "even" : "odd";
-    console.log(result,);
+    console.log(result);
   
     // We declare who won
     if ((result === "even" && selectedUser === "even") || (result === "odd" && selectedUser === "odd")) {
