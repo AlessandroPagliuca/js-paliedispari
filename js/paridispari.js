@@ -8,62 +8,44 @@ Stabiliamo se la somma dei due numeri è pari o dispari
 Dichiariamo chi ha vinto.
 */
 
+// selezione del btn a cui aggiungere l'evento
+let btnParDisp = document.getElementById('btnParDisp');
+btnParDisp.addEventListener('click', numberSelected);
 
-//DA QUI PARTONO TUTTE LE VARIABILI E FUNZIONI DELL'UTENTE
-
-//variabili numero scelto dall'utente
-let numberUser;
-
-//variabile del btn con rispettivo evento 
-let btnPardisp = document.getElementById('btnPardisp');
-
-btnPardisp.addEventListener('click', numberSelectedUser);
-
-function numberSelectedUser(){
-    numberUser = document.getElementById('numberUser').value;
-    console.log(numberUser);
-
-    //variabili e function della select pari dispari scleta dall'utente
-    let optionUser = document.getElementById('pariDisp');
-    optionUser.addEventListener('change', parDisp);
-
-    function parDisp(){
-        const result = optionUser.value;
-        console.log(result);
+// Inizio della funzione da aggiungere all'evento del btn 
+function numberSelected(){
+    // Otteniamo la scelta dell'utente dalla select
+    let selectedUser = document.getElementById("select").value;
+    console.log(selectedUser,' select user');
+  
+    // Otteniamo il numero inserito dall'utente dalla casella di input
+    let numUser = parseInt(document.getElementById("numUser").value);
+    console.log(numUser,'utente');
+  
+    // Generiamo un numero casuale per il computer
+    let numComputer = Math.floor(Math.random() * 5) + 1;
+    console.log(numComputer,'computer');
+  
+    // Sommiamo i due numeri
+    let somma = numUser + numComputer;
+    console.log(somma, 'somma di entrambi');
+  
+    // Stabiliamo se la somma è pari o dispari
+    function isPar(num) {
+        console.log(num);
+      return num % 2 === 0;
     }
-}
+    let result = isPar(somma) ? "pari" : "dispari";
+    console.log(result, '"Verifica se pari o dispari"');
+  
+    // Dichiariamo chi ha vinto
+    if ((result === "pari" && selectedUser === "pari") || (result === "dispari" && selectedUser === "dispari")) {
+      document.getElementById("result").innerText = "Hai vinto!";
+      console.log('HAI VINTO');
+    } else {
+      document.getElementById("result").innerText = "Hai perso!";
+      console.log('HAI PERSO');
 
-
-
-
-
-
-//DA QUI PARTONO TUTTE LE VARIABILI E FUNZIONI DEL COMPUTER
-
-//generiamo un numero random da 1 a 5 per il computer
-function getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
-}
-
-let numPc = getRandomInt(1, 6);
-console.log(numPc);
-
-/*
-SOMMIAMO i due numeri stabilendo se la somma dei due numeri
-è pari o dispari  e dichiariamo chi ha vinto
-*/ 
-function pariDispari(num1, num2){
-    const somma = num1 + num2;
-    if(somma % 2 === 0){
-        const text = document.querySelector('h3').innerHTML = 'Hai vinto';
-        console.log(text);
-        return true;
     }
-    const text = document.querySelector('h3').innerHTML = 'Hai  perso';
-    console.log(text);
-    return false
-}
-
-let result = pariDispari(numberSelectedUser, numPc)
+  }
+ 
